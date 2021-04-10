@@ -8,9 +8,6 @@ html {
 }
 
 *,
-* {
-  outline: 1px solid tomato;
-}
 *::before,
 *::after {
   box-sizing: inherit;
