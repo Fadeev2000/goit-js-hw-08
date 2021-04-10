@@ -2,6 +2,7 @@ import gallery_items from '../gallery-items.js';
 
 const listEl = document.querySelector('.js-gallery');
 const modalEl = document.querySelector('.js-lightbox');
+const modalImgEl = modalEl.querySelector('img');
 
 const galleryEls = gallery_items.map(({ preview, original, description }) => {
     return `
@@ -30,5 +31,7 @@ function onGalleryItemClick(e) {
     if (e.target.nodeName !== 'IMG') return;
 
     modalEl.classList.add('is-open');
+    modalImgEl.src = e.target.dataset.source;
+    modalImgEl.alt = e.target.alt;
 }
 
