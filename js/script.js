@@ -1,6 +1,7 @@
 import gallery_items from '../gallery-items.js';
 
 const listEl = document.querySelector('.js-gallery');
+const modalEl = document.querySelector('.js-lightbox');
 
 const galleryEls = gallery_items.map(({ preview, original, description }) => {
     return `
@@ -28,23 +29,6 @@ function onGalleryItemClick(e) {
     e.preventDefault();
     if (e.target.nodeName !== 'IMG') return;
 
-    console.log(e.target.dataset.source);
+    modalEl.classList.add('is-open');
 }
 
-
-
-/*const item = `
-<li class="gallery__item">
-        <a
-          class="gallery__link"
-          href="${big}"
-        >
-          <img
-            class="gallery__image"
-            src="${smoll}"
-            data-source="${big}"
-            alt="${alt}"
-          />
-        </a>
-      </li>
-`;*/
