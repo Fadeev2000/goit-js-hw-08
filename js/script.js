@@ -3,6 +3,8 @@ import gallery_items from '../gallery-items.js';
 const listEl = document.querySelector('.js-gallery');
 const modalEl = document.querySelector('.js-lightbox');
 const modalImgEl = modalEl.querySelector('img');
+const btnModalCloseEl = modalEl.querySelector('button[data-action="close-lightbox"]');
+console.log(btnModalCloseEl);
 
 const galleryEls = gallery_items.map(({ preview, original, description }) => {
     return `
@@ -33,5 +35,14 @@ function onGalleryItemClick(e) {
     modalEl.classList.add('is-open');
     modalImgEl.src = e.target.dataset.source;
     modalImgEl.alt = e.target.alt;
+
+    btnModalCloseEl.addEventListener('click', onModalImgClick)
 }
 
+function onModalImgClick() {
+    modalEl.classList.remove('is-open');
+    modalImgEl.src = '';
+    modalImgEl.alt = '';
+
+    btnModalCloseEl.removeEventListener('click', onModalImgClick);
+}
