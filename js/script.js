@@ -1,4 +1,4 @@
-import gallery_items from '../gallery-items.js';
+import gallery_items from '/gallery-items.js';
 
 const listEl = document.querySelector('.js-gallery');
 const modalEl = document.querySelector('.js-lightbox');
